@@ -1,5 +1,8 @@
 export const BOOTSTRAP = 'BOOTSTRAP';
 
+export const SET_LOADING = 'SET_LOADING';
+export const RESET_LOADING = 'RESET_LOADING';
+
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const USER_HAS_LOGGED_IN = 'USER_HAS_LOGGED_IN';

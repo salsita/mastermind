@@ -19,8 +19,15 @@ export function* onLogout() {
 }
 
 export function* onBootstrap() {
+  // Display a loading spinner on application bootstrap
+  // because we need to asynchronously retrieve an infromation (through channel)
+  // whether user has been joined in
+  yield put(buildAction(ActionTypes.SET_LOADING));
+
   // Create a channel which informs Saga when user logs in or out
   const authStateChangesChannel = yield call(Backend.createAuthStateChangesChannel);
+
+  let bootstrapped = false;
 
   while (true) {
     const user = yield take(authStateChangesChannel);
@@ -35,6 +42,13 @@ export function* onBootstrap() {
 
       // And store the reference to the user
       yield put(buildAction(ActionTypes.USER_HAS_LOGGED_IN, user.id));
+    }
+
+    // The app is bootstrapped when first event comes through auth channel
+    // and it doesn't matter whether user is or is not logged in
+    if (!bootstrapped) {
+      yield put(buildAction(ActionTypes.RESET_LOADING));
+      bootstrapped = true;
     }
   }
 }
