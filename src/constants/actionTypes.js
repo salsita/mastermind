@@ -15,6 +15,11 @@ export const USER_HAS_DISCONNECTED = 'USER_HAS_DISCONNECTED';
 
 export const START_GAME = 'START_GAME';
 export const LEAVE_GAME = 'LEAVE_GAME';
+export const RESUME_GAME = 'RESUME_GAME';
+export const PLAYER_GUESS = 'PLAYER_GUESS';
+export const START_TURN = 'START_TURN';
+export const FINISH_TURN = 'FINISH_TURN';
+
 
 export const SHOW_CONFIRMATION_MODAL = 'SHOW_CONFIRMATION_MODAL';
 export const CONFIRM_MODAL = 'CONFIRM_MODAL';

@@ -4,7 +4,10 @@ import * as Actions from '../constants/actionTypes';
 import * as Entities from '../constants/entities';
 
 const initialState = {
-  [Entities.USER]: {}
+  [Entities.USER]: {},
+  [Entities.GUESS]: {},
+  [Entities.RATING]: {},
+  [Entities.GAME]: {}
 };
 
 export default (state = initialState, { type, payload }) => {
