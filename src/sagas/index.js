@@ -11,7 +11,7 @@ export default function* () {
   yield [
     fork(takeEvery, ActionTypes.BOOTSTRAP, AuthSaga.onBootstrap),
     fork(takeEvery, ActionTypes.BOOTSTRAP, OnlineUsersSaga.onBootstrap),
-    fork(takeEvery, ActionTypes.START_GAME, GameSaga.onStartGame),
+    fork(takeEvery, ActionTypes.BOOTSTRAP, GameSaga.onBootstrap),
     fork(takeEvery, ActionTypes.OPEN_LEADERBOARD, LeaderboardSaga.onOpenLeaderboard),
     fork(takeEvery, ActionTypes.LOGIN, AuthSaga.onLogin),
     fork(takeEvery, ActionTypes.LOGOUT, AuthSaga.onLogout)

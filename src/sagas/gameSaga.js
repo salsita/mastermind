@@ -1,4 +1,4 @@
-import { call, put, select, take } from 'redux-saga/effects';
+import { call, take, put, cancel, fork, select } from 'redux-saga/effects';
 
 import Backend from '../backend';
 import buildAction from '../helpers/buildAction';
@@ -8,7 +8,7 @@ import * as ActionTypes from '../constants/actionTypes';
 import * as Entities from '../constants/entities';
 import * as GameSelectors from '../selectors/gameSelectors';
 
-export function* onStartGame() {
+function* onStartGame() {
   // We want to display a loading spinner because we need
   // to ask server asynchronously first whether there's
   // any game already
@@ -79,5 +79,17 @@ export function* onStartGame() {
 
     // And finish the turn (hide spinner)
     yield put(buildAction(ActionTypes.FINISH_TURN));
+  }
+}
+
+export function* onBootstrap() {
+  // Obviously starting a game needs to be treated separately (not using takeEvery)
+  // because we want to terminate the process when user leaves the game.
+  // Because either they just left the game or the game is over.
+  while (true) {
+    yield take(ActionTypes.START_GAME);
+    const startGameProcess = yield fork(onStartGame);
+    yield take(ActionTypes.LEAVE_GAME);
+    yield cancel(startGameProcess);
   }
 }
