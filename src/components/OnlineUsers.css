@@ -1,0 +1,17 @@
+.OnlineUsers {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 20px;
+}
+
+.OnlineUsers h2 {
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+.OnlineUsers img {
+  border-radius: 20px;
+  float: right;
+  margin-left: 10px;
+}

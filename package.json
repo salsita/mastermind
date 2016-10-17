@@ -1,0 +1,35 @@
+{
+  "name": "mastermind",
+  "version": "1.0.0",
+  "description": "Mastermind Game",
+  "devDependencies": {
+    "babel-eslint": "^7.0.0",
+    "eslint": "^3.5.0",
+    "eslint-config-airbnb": "^11.1.0",
+    "eslint-plugin-import": "^1.15.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-react": "^6.2.2",
+    "react-scripts": "0.6.1"
+  },
+  "dependencies": {
+    "lodash": "^4.16.4",
+    "mastermind-server": "^1.0.0",
+    "moment": "^2.15.1",
+    "normalizr": "^2.2.1",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-redux": "^4.4.5",
+    "react-router": "^4.0.0-alpha.4",
+    "redux": "^3.6.0",
+    "redux-logger": "^2.6.1",
+    "redux-saga": "^0.11.1",
+    "reselect": "^2.5.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build && cp -r build ./dist",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint": "eslint ./src"
+  }
+}

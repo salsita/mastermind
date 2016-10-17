@@ -1,0 +1,64 @@
+.UserProfile {
+  position: fixed;
+  top: 0;
+  right: 0;
+  color: #fff;
+  height: 50px;
+  font-size: 14px;
+  z-index: 2;
+}
+
+.UserProfile:hover {
+  background: #222;
+}
+
+.UserProfile ul {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: #222;
+  width: 100vw;
+}
+
+.UserProfile:hover ul {
+  display: block;
+}
+
+.UserProfile li {
+  line-height: 40px;
+  padding: 0 20px;
+  text-align: right;
+  cursor: pointer;
+}
+
+.UserProfile li:hover {
+  background: #fff;
+  color: #333;
+}
+
+.UserProfile img {
+  border-radius: 20px;
+  margin: 5px 20px;
+  display: block;
+}
+
+.loginButton {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  display: block;
+  line-height: 30px;
+  height: 30px;
+  background: #8bc34a;
+  color: #fff;
+  font-weight: bold;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.loginButton:hover {
+  background: #4e4;
+}

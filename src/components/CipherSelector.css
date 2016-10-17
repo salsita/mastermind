@@ -1,0 +1,49 @@
+.CipherSelector {
+  width: 290px;
+  height: 50px;
+  margin: 0 auto 40px auto;
+}
+
+.CipherSelector ul {
+  width: 200px;
+  display: block;
+  margin: 0;
+  float: left;
+}
+
+.CipherSelector li {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 100%;
+  transition: .5s all;
+}
+
+.CipherSelector li:hover {
+  box-shadow: 0 0 0 #fff;
+  transform: scale(1.2);
+}
+
+.CipherSelector button {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  border-radius: 20px;
+  border: 0;
+  padding: 0;
+  float: right;
+  cursor: pointer;
+  font-weight: bold;
+  outline: 0;
+  transition: .5s all;
+}
+
+.CipherSelector button:hover {
+  background: #000;
+  font-size: 16px;
+  color: #fff;
+  transform: scale(1.2);
+}
