@@ -1,7 +1,7 @@
 import * as ActionTypes from '../constants/actionTypes';
 
 const initialState = {
-  loading: false,
+  counter: 0,
 };
 
 export default (state = initialState, { type }) => {
@@ -9,13 +9,15 @@ export default (state = initialState, { type }) => {
     case ActionTypes.SET_LOADING:
       return {
         ...state,
-        loading: true
+        counter: state.counter + 1
       };
 
     case ActionTypes.RESET_LOADING: {
+      const counter = Math.max(state.counter - 1, 0);
+
       return {
         ...state,
-        loading: false
+        counter
       };
     }
 

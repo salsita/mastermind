@@ -4,5 +4,5 @@ import { getLoadingSpinner as getState } from './rootSelectors';
 
 export const isLoading = createSelector(
   getState,
-  state => state.loading
+  state => state.counter > 0
 );
