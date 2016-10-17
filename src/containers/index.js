@@ -10,6 +10,7 @@ import ConfirmationModal from './ConfirmationModal';
 import UserProfile from './UserProfile';
 import OnlineUsers from './OnlineUsers';
 import LoadingSpinner from './LoadingSpinner';
+import Leaderboard from './Leaderboard';
 import LoginView from './LoginView';
 import GameView from './GameView';
 import MainMenuView from '../components/MainMenuView';
@@ -42,6 +43,7 @@ const Index = ({ loggedIn, loading }) => (
           <OnlineUsers />
           <Match exactly pattern="/" component={MainMenuView} />
           <Match exactly pattern="/game" component={GameView} />
+          <Match exactly pattern="/leaderboard" component={Leaderboard} />
           <Match exactly pattern="/login" component={IndexRedirect} />
           <Miss component={NotFoundView} />
         </div>

@@ -5,6 +5,7 @@ import confirmationModalReducer from './confirmationModalReducer';
 import entityRepositoryReducer from './entityRepositoryReducer';
 import gameReducer from './gameReducer';
 import onlineUsersReducer from './onlineUsersReducer';
+import leaderboardReducer from './leaderboardReducer';
 import loadingSpinnerReducer from './loadingSpinnerReducer';
 
 export default combineReducers({
@@ -13,5 +14,6 @@ export default combineReducers({
   entityRepository: entityRepositoryReducer,
   game: gameReducer,
   onlineUsers: onlineUsersReducer,
+  leaderboard: leaderboardReducer,
   loadingSpinner: loadingSpinnerReducer
 });
