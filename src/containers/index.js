@@ -7,6 +7,7 @@ import Miss from 'react-router/Miss';
 import Link from 'react-router/Link';
 
 import UserProfile from './UserProfile';
+import OnlineUsers from './OnlineUsers';
 import LoadingSpinner from './LoadingSpinner';
 import LoginView from './LoginView';
 import MainMenuView from '../components/MainMenuView';
@@ -35,6 +36,7 @@ const Index = ({ loggedIn, loading }) => (
       {loggedIn && (
         <div className="GameContainer">
           <UserProfile />
+          <OnlineUsers />
           <Match exactly pattern="/" component={MainMenuView} />
           <Match exactly pattern="/login" component={IndexRedirect} />
           <Miss component={NotFoundView} />
