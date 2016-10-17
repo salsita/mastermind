@@ -6,10 +6,12 @@ import Redirect from 'react-router/Redirect';
 import Miss from 'react-router/Miss';
 import Link from 'react-router/Link';
 
+import ConfirmationModal from './ConfirmationModal';
 import UserProfile from './UserProfile';
 import OnlineUsers from './OnlineUsers';
 import LoadingSpinner from './LoadingSpinner';
 import LoginView from './LoginView';
+import GameView from './GameView';
 import MainMenuView from '../components/MainMenuView';
 import NotFoundView from '../components/NotFoundView';
 
@@ -26,6 +28,7 @@ const Index = ({ loggedIn, loading }) => (
     <div>
       <h1><Link to="/">Mastermind</Link></h1>
       <LoadingSpinner />
+      <ConfirmationModal />
       <UserProfile />
       {!loggedIn && !loading && (
         <div>
@@ -38,6 +41,7 @@ const Index = ({ loggedIn, loading }) => (
           <UserProfile />
           <OnlineUsers />
           <Match exactly pattern="/" component={MainMenuView} />
+          <Match exactly pattern="/game" component={GameView} />
           <Match exactly pattern="/login" component={IndexRedirect} />
           <Miss component={NotFoundView} />
         </div>
