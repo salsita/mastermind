@@ -16,6 +16,18 @@ export default (state = initialState, { type, payload }) => {
         gameId: payload
       };
 
+    case ActionTypes.START_TURN:
+      return {
+        ...state,
+        aiTurn: true
+      };
+
+    case ActionTypes.FINISH_TURN:
+      return {
+        ...state,
+        aiTurn: false
+      };
+
     default:
       return state;
   }

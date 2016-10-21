@@ -15,3 +15,5 @@ export const START_GAME = 'START_GAME';
 export const LEAVE_GAME = 'LEAVE_GAME';
 export const RESUME_GAME = 'RESUME_GAME';
 export const PLAYER_GUESS = 'PLAYER_GUESS';
+export const START_TURN = 'START_TURN';
+export const FINISH_TURN = 'FINISH_TURN';
