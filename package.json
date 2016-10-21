@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "lodash": "^4.16.4",
-    "mastermind-server": "^1.0.0",
+    "mastermind-server": "^1.0.1",
     "moment": "^2.15.1",
     "normalizr": "^2.2.1",
     "react": "^15.3.2",

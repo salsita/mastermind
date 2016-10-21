@@ -1,4 +1,4 @@
-import { call, put, select, take } from 'redux-saga/effects';
+import { call, put, select, take, fork, cancel } from 'redux-saga/effects';
 import { normalize } from 'normalizr';
 
 import Backend from '../backend';
@@ -74,5 +74,17 @@ export function* onStartGame() {
 
     // And finish the turn (hide spinner)
     yield put(buildAction(ActionTypes.FINISH_TURN));
+  }
+}
+
+export function* onBootstrap() {
+  // Obviously starting a game needs to be treated separately (not using takeEvery)
+  // because we want to terminate the process when user leaves the game.
+  // Because either they just left the game or the game is over.
+  while (true) {
+    yield take(ActionTypes.START_GAME);
+    const startGameProcess = yield fork(onStartGame);
+    yield take(ActionTypes.LEAVE_GAME);
+    yield cancel(startGameProcess);
   }
 }
