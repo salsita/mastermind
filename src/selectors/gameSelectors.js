@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import { head, sortBy } from 'lodash';
 
 import { getGame as getState } from './rootSelectors';
 import * as EntityRepositorySelectors from './entityRepositorySelectors';
@@ -14,4 +15,17 @@ export const isAITurn = createSelector(
   state => state.aiTurn
 );
 
-export const getLastGuess = () => null;
+
+export const getLastGuess = createSelector(
+  getGame,
+  (game) => {
+    if (game && game.guesses.length > 0) {
+      const { guesses } = game;
+
+      return head(sortBy(guesses, guess => guess.turn).reverse()).guess;
+    } else {
+      return null;
+    }
+  }
+);
+
