@@ -8,7 +8,7 @@ import * as GameSaga from './gameSaga';
 export default function* () {
   yield [
     fork(takeEvery, ActionTypes.BOOTSTRAP, AuthSaga.onBootstrap),
-    fork(takeEvery, ActionTypes.BOOTSTRAP, GameSaga.onBootstrap),
+    fork(takeEvery, ActionTypes.START_GAME, GameSaga.onStartGame),
     fork(takeEvery, ActionTypes.LOGIN, AuthSaga.onLogin),
     fork(takeEvery, ActionTypes.LOGOUT, AuthSaga.onLogout)
   ];
