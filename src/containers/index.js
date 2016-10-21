@@ -6,6 +6,7 @@ import Miss from 'react-router/Miss';
 import Link from 'react-router/Link';
 
 import UserProfile from './UserProfile';
+import ConfirmationModal from './ConfirmationModal';
 import MainMenuView from '../components/MainMenuView';
 import NotFoundView from '../components/NotFoundView';
 
@@ -15,6 +16,7 @@ const Index = ({ loggedIn }) => (
   <Router>
     <div>
       <h1><Link to="/">Mastermind</Link></h1>
+      <ConfirmationModal />
       <UserProfile />
       {loggedIn && (
         <div className="GameContainer">
