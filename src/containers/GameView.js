@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import GameView from '../components/GameView';
 import buildActionCreators from '../helpers/buildActionCreators';
 import * as ActionTypes from '../constants/actionTypes';
+import * as GameSelectors from '../selectors/gameSelectors';
 
-const mapStateToProps = (appState) => ({
-  game: null,
-  aiTurn: false,
-  lastGuess: null
+const mapStateToProps = appState => ({
+  game: GameSelectors.getGame(appState),
+  aiTurn: GameSelectors.isAITurn(appState),
+  lastGuess: GameSelectors.getLastGuess(appState),
 });
 
 export default connect(
