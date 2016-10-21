@@ -4,14 +4,14 @@
   margin: 0 auto 40px auto;
 }
 
-.CipherSelector ul {
+.CipherSelector > ul {
   width: 200px;
   display: block;
   margin: 0;
   float: left;
 }
 
-.CipherSelector li {
+.CipherSelector > ul > li {
   display: inline-block;
   width: 40px;
   height: 40px;
@@ -22,9 +22,24 @@
   transition: .5s all;
 }
 
-.CipherSelector li:hover {
+.CipherSelector > ul > li.selected {
   box-shadow: 0 0 0 #fff;
   transform: scale(1.2);
+}
+
+.CipherSelector ul ul {
+  margin-top: 45px;
+  background-color: #fff;
+  position: relative;
+  /*z-index: 3;*/
+}
+
+.CipherSelector ul ul li {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  margin-bottom: 5px;
+  z-index: 999;
 }
 
 .CipherSelector button {
