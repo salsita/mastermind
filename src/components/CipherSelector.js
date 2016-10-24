@@ -14,6 +14,7 @@ export default class CipherSelector extends Component {
     super(props);
 
     this.state = {
+      activeSelector: null,
       cipher: props.cipher || [0, 0, 0, 0]
     };
 
@@ -24,15 +25,21 @@ export default class CipherSelector extends Component {
     this.props.onCipherSelected(this.state.cipher);
   }
 
-  changeColour(index) {
+  changeColour(index, value) {
     this.setState({
-      cipher: this.state.cipher.map((value, indexOfValue) => {
+      cipher: this.state.cipher.map((originalValue, indexOfValue) => {
         if (indexOfValue === index) {
-          return (value + 1) % COLORS.length;
-        } else {
           return value;
+        } else {
+          return originalValue;
         }
       })
+    });
+  }
+
+  changeActiveSelector(index) {
+    this.setState({
+      activeSelector: this.state.activeSelector === index ? null : index
     });
   }
 
@@ -42,10 +49,22 @@ export default class CipherSelector extends Component {
         <ul>
           {this.state.cipher.map((value, index) => (
             <li
-              onClick={() => this.changeColour(index)}
               key={index}
+              className={this.state.activeSelector === index ? 'selected' : ''}
               style={{ backgroundColor: COLORS[value] }}
-            />
+              onClick={() => this.changeActiveSelector(index)}
+            >{index === this.state.activeSelector && (
+            <ul>
+              {COLORS.map((backgroundColor, colorIndex) => (
+                <li
+                  key={colorIndex}
+                  style={{ backgroundColor }}
+                  onClick={() => this.changeColour(index, colorIndex)}
+                />
+              ))}
+            </ul>
+            )}
+            </li>
           ))}
         </ul>
         <button onClick={this.boundOnCommit}>OK</button>

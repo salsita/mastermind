@@ -1,1 +1,7 @@
-export default (appState = 0) => appState;
+import { combineReducers } from 'redux';
+
+import authReducer from './authReducer';
+
+export default combineReducers({
+  auth: authReducer
+});
