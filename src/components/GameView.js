@@ -1,5 +1,6 @@
-import React, { Component, PropTypes } from 'react';
-import Link from 'react-router/Link';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import CipherSelector from './CipherSelector';
 import Rating from './Rating';
@@ -68,8 +69,8 @@ export default class GameView extends Component {
         } else {
           return (
             <div className="gameOver">
-              <h2>:'( Game over</h2>
-              <p>You didn't manage to guess the cipher.</p>
+              <h2>:&amp;( Game over</h2>
+              <p>You didn&amp;t manage to guess the cipher.</p>
               <Link to="/">Go to Main menu</Link>
             </div>
           );

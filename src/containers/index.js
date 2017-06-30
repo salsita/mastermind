@@ -1,15 +1,12 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import Router from 'react-router/BrowserRouter';
-import Match from 'react-router/Match';
-import Miss from 'react-router/Miss';
-import Link from 'react-router/Link';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import UserProfile from './UserProfile';
 import ConfirmationModal from './ConfirmationModal';
 import GameView from './GameView';
 import MainMenuView from '../components/MainMenuView';
-import NotFoundView from '../components/NotFoundView';
 
 import * as AuthSelectors from '../selectors/authSelectors';
 
@@ -22,9 +19,8 @@ const Index = ({ loggedIn }) => (
       {loggedIn && (
         <div className="GameContainer">
           <UserProfile />
-          <Match exactly pattern="/" component={MainMenuView} />
-          <Match exactly pattern="/game" component={GameView} />
-          <Miss component={NotFoundView} />
+          <Route exact path="/" component={MainMenuView} />
+          <Route exact path="/game" component={GameView} />
         </div>
       )}
     </div>

@@ -1,16 +1,16 @@
-import { Schema, arrayOf } from 'normalizr';
+import { schema } from 'normalizr';
 
 import * as Entities from '../constants/entities';
 
-const GameSchema = new Schema(Entities.GAME);
-const UserSchema = new Schema(Entities.USER);
-const GuessSchema = new Schema(Entities.GUESS);
-const RatingSchema = new Schema(Entities.RATING);
+const GameSchema = new schema.Entity(Entities.GAME);
+const UserSchema = new schema.Entity(Entities.USER);
+const GuessSchema = new schema.Entity(Entities.GUESS);
+const RatingSchema = new schema.Entity(Entities.RATING);
 
 GameSchema.define({
   user: UserSchema,
-  guesses: arrayOf(GuessSchema),
-  ratings: arrayOf(RatingSchema)
+  guesses: [GuessSchema],
+  ratings: [RatingSchema]
 });
 
 export default {

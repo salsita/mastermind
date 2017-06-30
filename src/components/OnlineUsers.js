@@ -6,9 +6,11 @@ const OnlineUsers = ({ users }) => (
     <h2>Players online: {users.length}</h2>
     <ul>
       {users.map((
-        { id, email, photo }) => <li key={id} title={email}>
-          <img src={photo} alt={email} width={40} />
-        </li>
+        { id, email, photo }) => (
+          <li key={id} title={email}>
+            <img src={photo} alt={email} width={40} />
+          </li>
+        )
       )}
     </ul>
   </div>
