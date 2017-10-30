@@ -25,13 +25,16 @@
     "redux": "^3.6.0",
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.15.4",
-    "reselect": "^3.0.1"
+    "reselect": "^3.0.1",
+    "serve": "^6.3.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && cp -r build ./dist",
+    "start:prod": "serve -s build",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "lint": "eslint ./src"
+    "lint": "eslint ./src",
+    "postinstall": "npm run build"
   }
 }
